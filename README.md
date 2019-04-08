@@ -30,12 +30,13 @@ To test the iiwaPy follow the steps:
 
 ## On the robot side:
 1- Run the application "MatlabToolboxServer" from the Smart Pad of the robot.
+
 2- You have 60 seconds to connect from the Python script before the server is shut down automatically.
 
 ## From Python on your PC
-From inside python IDE run the tutorial script [Tutorial_getters, available here](https://github.com/Modi1987/iiwaPy/python_client/Tutorial_getters.py), you shall see dara acquired from the robot controller printed inside python console.
+From inside python IDE run the tutorial script [Tutorial_getters, available here](https://github.com/Modi1987/iiwaPy/blob/master/python_client/Tutorial_getters.py), you shall see dara acquired from the robot controller printed inside python console.
 
 --------------------------------------
 
-Copyright: Mohammad Safeea
+Copyright: Mohammad Safeea, first commit 8th-April-2019
 
