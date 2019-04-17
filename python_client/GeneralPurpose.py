@@ -7,29 +7,28 @@ Created on Tue Mar 27 14:45:29 2018
 
 import sys
 
-def getDoubleFromString(message,size):
-    strVals=message.split("_")
-    doubleVals=[]
-    counter=0
+
+def getDoubleFromString(message, size):
+    strVals = message.split("_")
+    doubleVals = []
+    counter = 0
     for strVal in strVals:
-        counter=counter+1
-        if(counter>size):break
+        counter = counter + 1
+        if counter > size:
+            break
         try:
-            x=float(strVal)
+            x = float(strVal)
             doubleVals.append(x)
         except:
-            print('can not convert the following variable to float')
+            print("can not convert the following variable to float")
             print(strVal)
             sys.stdout.flush()
-            
+
     return doubleVals
-    
+
+
 def directKinematics(q):
-    if(len(q)<>7):
-        print('Error in function [directKinematics]')
-        print('The size of the joint angles shall be 7')
+    if len(q) <> 7:
+        print("Error in function [directKinematics]")
+        print("The size of the joint angles shall be 7")
         return
-    
-    
-        
-        

@@ -10,14 +10,14 @@ import StringIO
 
 
 class mySock:
-    '''demonstration class only
+    """demonstration class only
       - coded for clarity, not efficiency
-    '''
+    """
 
     def __init__(self, tup):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect(tup)
-        self.buff = StringIO.StringIO(2048)          
+        self.buff = StringIO.StringIO(2048)
 
     def send(self, msg):
         totalsent = 0
@@ -28,19 +28,18 @@ class mySock:
             totalsent = totalsent + sent
 
     def receive(self):
-        returnVal=[]
+        returnVal = []
         while True:
-            data = self.sock.recv(1)                     
-            if (data=='\n'):break            
-            self.buff.write(data)                       
-        returnVal= self.buff.getvalue()     
+            data = self.sock.recv(1)
+            if data == "\n":
+                break
+            self.buff.write(data)
+        returnVal = self.buff.getvalue()
         self.buff.truncate(0)
-        return returnVal;
-        
+        return returnVal
 
-        
     def close(self):
-        endCommand='end\n'
+        endCommand = "end\n"
         self.sock.send(endCommand)
-        time.sleep(1) # sleep for one seconds
+        time.sleep(1)  # sleep for one seconds
         self.sock.close()
