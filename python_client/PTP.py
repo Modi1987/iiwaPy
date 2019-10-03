@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Mar 28 18:44:35 2018
+updated 1st-Oct-2019
 
 @author: Mohammad SAFEEA
 """
@@ -8,6 +9,7 @@ import math
 import StringIO
 from Senders import Senders
 from Getters import Getters
+import sys
 
 class PTP:
     
@@ -19,7 +21,14 @@ class PTP:
     def send(self,data):
         data=data+'\n'
         self.mysoc.send(data)
-        self.mysoc.receive()
+        message=self.mysoc.receive()
+        print(message)
+        sys.stdout.flush()
+    
+    def awaitConfirmation(self):
+        message=self.mysoc.receive()
+        print(message)
+        sys.stdout.flush()
     
 ## arcc motions
     def movePTPArc_AC(self,theta,c,k,vel):
@@ -163,15 +172,15 @@ class PTP:
             return
         buff = StringIO.StringIO(2048)
         buff.write('jRelVel_')
-        buff.write(str(relVel))
+        buff.write(str(relVel[0]))
         buff.write('_')
-        buff.write('\n')
         command=buff.getvalue()
         self.send(command)
         self.sender.sendCirc1FramePos(f1)
         self.sender.sendCirc2FramePos(f2)
         theCommand='doPTPinCSCircle1_'
         self.send(theCommand)
+        self.awaitConfirmation() # bug fixed on 1st October 2019, awaiting end of blocking motion
 
     def movePTPLineEEF(self,pos,vel):
         if(len(vel)<>1):
@@ -181,14 +190,14 @@ class PTP:
         if (len(pos)==6):
             buff = StringIO.StringIO(2048)
             buff.write('jRelVel_')
-            buff.write(str(vel))
+            buff.write(str(vel[0]))
             buff.write('_')
-            buff.write('\n')
             command=buff.getvalue()
             self.send(command)
             self.sender.sendEEfPositions(pos)
-            theCommand='doPTPinCS\n'
+            theCommand='doPTPinCS'
             self.send(theCommand)
+            self.awaitConfirmation() # bug fixed on 1st October 2019, awaiting end of blocking motion
         else:
             print('Error in function [movePTPLineEEF]')
             print('Position should be an array of 6 elements')   
@@ -201,9 +210,8 @@ class PTP:
         if (len(pos)==3):
             buff = StringIO.StringIO(2048)
             buff.write('jRelVel_')
-            buff.write(str(vel))
+            buff.write(str(vel[0]))
             buff.write('_')
-            buff.write('\n')
             command=buff.getvalue()
             self.send(command)
             newPos=[0,0,0,0,0,0]
@@ -211,8 +219,9 @@ class PTP:
             newPos[1]=pos[1]
             newPos[2]=pos[2]
             self.sender.sendEEfPositions(newPos)
-            theCommand='doPTPinCSRelEEF\n'
+            theCommand='doPTPinCSRelEEF'
             self.send(theCommand)
+            self.awaitConfirmation() # bug fixed on 1st October 2019, awaiting end of blocking motion
         else:
             print('Error in function [movePTPLineEefRelEef]')
             print('Position should be an array of 3 elements [x,y,z]')
@@ -224,9 +233,8 @@ class PTP:
         if (len(vel)==1):
             buff = StringIO.StringIO(2048)
             buff.write('jRelVel_')
-            buff.write(str(vel))
+            buff.write(str(vel[0]))
             buff.write('_')
-            buff.write('\n')
             command=buff.getvalue()
             self.send(command)
             newPos=[0,0,0,0,0,0,0]
@@ -234,8 +242,9 @@ class PTP:
             newPos[1]=pos[1]
             newPos[2]=pos[2]
             self.sender.sendEEfPositions(newPos)
-            theCommand='doPTPinCSRelBase\n'
+            theCommand='doPTPinCSRelBase'
             self.send(theCommand)
+            self.awaitConfirmation() # bug fixed on 1st October 2019, awaiting end of blocking motion
         else:
              print('Velocity should be a scalar')
 
@@ -248,14 +257,14 @@ class PTP:
         if (len(relVel)==1):
             buff = StringIO.StringIO(2048)
             buff.write('jRelVel_')
-            buff.write(str(relVel))
+            buff.write(str(relVel[0]))
             buff.write('_')
-            buff.write('\n')
             command=buff.getvalue()
             self.send(command)
             self.sender.sendJointsPositions(jpos)
-            theCommand='doPTPinJS\n'
+            theCommand='doPTPinJS'
             self.send(theCommand)
+            self.awaitConfirmation() # bug fixed on 1st October 2019, awaiting end of blocking motion
         else:
             print('Error in function [movePTPHomeJointSpace]')
             print('Relative velocity should be a scalar')
@@ -264,15 +273,15 @@ class PTP:
         if (len(relVel)==1):
             buff = StringIO.StringIO(2048)
             buff.write('jRelVel_')
-            buff.write(str(relVel))
+            buff.write(str(relVel[0]))
             buff.write('_')
-            buff.write('\n')
             command=buff.getvalue()
             self.send(command)
             jpos=[0,0,0,0,0,0,0]
             self.sender.sendJointsPositions(jpos)
-            theCommand='doPTPinJS\n'
+            theCommand='doPTPinJS'
             self.send(theCommand)
+            self.awaitConfirmation() # bug fixed on 1st October 2019, awaiting end of blocking motion
         else:
             print('Error in function [movePTPHomeJointSpace]')
             print('Relative velocity should be a scalar')
