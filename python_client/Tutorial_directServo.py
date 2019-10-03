@@ -27,9 +27,15 @@ time.sleep(2)
 iiwa.setBlueOff()
 # read some data from the robot
 try:
+
+    # Move to an initial position    
+    initPos=[0,0,0,-math.pi/2,0,math.pi/2,0];
+    initVel=[0.1]
+    iiwa.movePTPJointSpace(initPos,initVel)
+    
     counter=0
     index=0
-    w=0.6*3
+    w=0.6
     theta=0
     interval= 2*3.14
     a=3.14/6
@@ -52,6 +58,11 @@ try:
             
     deltat= getSecs()-t0;
     iiwa.realTime_stopDirectServoJoints()
+
+    # Move to an initial position    
+    jPos=[math.pi/3,0,0,-math.pi/2,0,math.pi/2,0];
+    vRel=[0.1]
+    iiwa.movePTPJointSpace(jPos,vRel)
     
 except:
     print('an error happened')
