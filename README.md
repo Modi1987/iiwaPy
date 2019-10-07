@@ -19,6 +19,13 @@ To utilize the iiwaPy, you have to install the [KST Sunrise Server Application, 
 
 --------------------------------------
 
+# Video tutorials
+
+Video tutorials on controlling IIWA from python [are available in here](https://www.youtube.com/watch?v=QkUe8JIs63A&list=PLz558OYgHuZdRoxkqQ-M9LOdksZnEWbKq&index=2&t=0s).
+
+
+--------------------------------------
+
 # To test the iiwaPy
 
 To test the iiwaPy follow the steps:
@@ -29,7 +36,7 @@ To test the iiwaPy follow the steps:
 2- Synchronise the [KST Sunrise Server Application](https://github.com/Modi1987/KST-Kuka-Sunrise-Toolbox/tree/master/KUKA_Sunrise_server_source_code) into the robot controller;
 
 ## On the robot side:
-1- Run the application "MatlabToolboxServer" from the Smart Pad of the robot.
+1- Run the application "MatlabToolboxServer" from the smartPad of the robot.
 
 2- You have 60 seconds to connect from the Python script before the server is shut down automatically.
 
