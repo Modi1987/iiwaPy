@@ -7,11 +7,11 @@ Created on Mon Mar 26 17:03:26 2018
 Test script of iiwaPy class.
 
 """
-from sunrisePy import sunrisePy
+from iiwaPy import iiwaPy
 import time
 ip='172.31.1.147'
 #ip='localhost'
-iiwa=sunrisePy(ip)
+iiwa=iiwaPy(ip)
 iiwa.setBlueOn()
 time.sleep(2)
 iiwa.setBlueOff()

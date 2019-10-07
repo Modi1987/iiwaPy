@@ -8,7 +8,7 @@ Example for controlling iiwa using GUI from an external PC
 """
 
 from Tkinter import *
-from sunrisePy import sunrisePy
+from iiwaPy import iiwaPy
 
 class App:
     def __init__(self):
@@ -86,7 +86,7 @@ class App:
     def connectFun(self):
         message="Connecting to robot at ip: "+self.IP_of_robot.get()
         self.printMessage(message)
-        self.iiwa=sunrisePy(self.IP_of_robot.get())
+        self.iiwa=iiwaPy(self.IP_of_robot.get())
         jpos=self.iiwa.getJointsPos()
         for i in range(7):
             self.jText[i].set(str(jpos[i] ))       

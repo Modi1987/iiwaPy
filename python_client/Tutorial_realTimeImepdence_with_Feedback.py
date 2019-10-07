@@ -9,7 +9,7 @@ plot joints torques feedback while controlling the robot
 
 """
 
-from sunrisePy import sunrisePy
+from iiwaPy import iiwaPy
 import matplotlib.pyplot as plt
 import numpy as np
 from datetime import datetime
@@ -45,7 +45,7 @@ def updatePlot(line,fig,x,y):
  # Connect to the robot
 ip='172.31.1.147'
 #ip='localhost'
-iiwa=sunrisePy(ip)
+iiwa=iiwaPy(ip)
 iiwa.setBlueOn()
 time.sleep(2)
 iiwa.setBlueOff()   

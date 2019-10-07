@@ -9,7 +9,7 @@ plot joints torques feedback while controlling the robot
 
 """
 
-from sunrisePy import sunrisePy
+from iiwaPy import iiwaPy
 from datetime import datetime
 import time
 import math
@@ -22,7 +22,7 @@ def getSecs():
 # Connect to the robot
 ip='172.31.1.147'
 #ip='localhost'
-iiwa=sunrisePy(ip)
+iiwa=iiwaPy(ip)
 iiwa.setBlueOn()
 time.sleep(2)
 iiwa.setBlueOff()   

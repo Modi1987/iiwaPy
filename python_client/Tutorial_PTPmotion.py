@@ -7,13 +7,13 @@ Created on Tue Oct  1 11:56:31 2019
 Test PTP motion class
 """
 
-from sunrisePy import sunrisePy
+from iiwaPy import iiwaPy
 import time
 import math
 # Connect to the robot
 ip='172.31.1.147'
 #ip='localhost'
-iiwa=sunrisePy(ip)
+iiwa=iiwaPy(ip)
 iiwa.setBlueOn()
 time.sleep(2)
 iiwa.setBlueOff()   
