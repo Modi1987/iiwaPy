@@ -47,7 +47,7 @@ class mySock:
             print('Trying to mount the follwoing TCP transform:')
             stringTuple=('x (mm)','y (mm)','z (mm)','alfa (rad)','beta (rad)','gamma (rad)')
             for i in range(6):
-                print(stringTuple[1]+': '+str(trans[i]))
+                print(stringTuple[i]+': '+str(trans[i]))
             # Try to mount the TCP
             self.buff.write('TFtrans')
             for num in trans:

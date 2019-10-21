@@ -10,14 +10,15 @@ class iiwaPy:
     realtime=0
     gnerealPorpuse=0
     
-    def __init__(self,ip):
+    def __init__(self,ip,trans=(0,0,0,0,0,0)):
         port=30001
-        self.soc=mySock((ip,port))
+        self.soc=mySock((ip,port),trans)
         self.set=Setters(self.soc)
         self.get=Getters(self.soc)
         self.sender=Senders(self.soc)
         self.rtl=RealTime(self.soc)
         self.ptp=PTP(self.soc)
+        self.TCPtrans=trans
   
     def close(self):
         self.soc.close()
