@@ -2,9 +2,9 @@
 
 # iiwaPy
 
-A python librarry used to control KUKA iiwa robots, the 7R800 and the 14R820, from an external computer using python 2.7.
+A python library to control KUKA iiwa robots, the 7R800 and the 14R820, from an external computer using python 2.7.
 
-Using the iiwaPy the utilizer can control the iiwa robot from his/her computer without a need for programming  the industerial manipulator.
+Using the iiwaPy the utilizer can control the iiwa robot from his/her computer without a need for programming  the industrial manipulator.
 
 A basic knowledge of using python is required.
 
@@ -41,7 +41,7 @@ To test the iiwaPy follow the steps:
 2- You have 60 seconds to connect from the Python script before the server is shut down automatically.
 
 ## From Python on your PC
-From inside python IDE run the tutorial script [Tutorial_getters, available here](https://github.com/Modi1987/iiwaPy/blob/master/python_client/Tutorial_getters.py), you shall see dara acquired from the robot controller printed inside python console.
+From inside python IDE run the tutorial script [Tutorial_getters, available here](https://github.com/Modi1987/iiwaPy/blob/master/python_client/Tutorial_getters.py), you shall see data acquired from the robot controller printed inside python console.
 
 --------------------------------------
 
