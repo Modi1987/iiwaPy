@@ -43,7 +43,23 @@ To test the iiwaPy follow the steps:
 ## From Python on your PC
 From inside python IDE run the tutorial script [Tutorial_getters, available here](https://github.com/Modi1987/iiwaPy/blob/master/python_client/Tutorial_getters.py), you shall see data acquired from the robot controller printed inside python console.
 
---------------------------------------
 
+## Citation
+Please cite the following article in your publications if it helps your research 🙏 :
+
+```javascript
+@article{doi:10.1080/0951192X.2023.2177744,
+author = {M. Safeea and P. Neto},
+title = {Model-based hardware in the loop control of collaborative robots: Simulink and Python based interfaces},
+journal = {International Journal of Computer Integrated Manufacturing},
+volume = {0},
+number = {0},
+pages = {1-13},
+year  = {2023},
+publisher = {Taylor & Francis},
+doi = {10.1080/0951192X.2023.2177744},
+}
+```
+--------------------------------------
 Copyright: Mohammad Safeea, first commit 8th-April-2019
 
